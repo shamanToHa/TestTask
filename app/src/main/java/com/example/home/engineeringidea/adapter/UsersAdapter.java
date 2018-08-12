@@ -53,17 +53,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
         private TextView phone;
         private TextView email;
 
-        public ViewHolder(View itemView) {
+         ViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.item_user_name);
             phone = itemView.findViewById(R.id.item_user_phone);
             email = itemView.findViewById(R.id.item_user_email);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    UserActivity.start(context, users.get(getAdapterPosition()));
-                }
-            });
+            itemView.setOnClickListener(v ->
+                    UserActivity.start(context, users.get(getAdapterPosition())));
         }
     }
 }
