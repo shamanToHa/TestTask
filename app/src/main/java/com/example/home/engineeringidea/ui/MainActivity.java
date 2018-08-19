@@ -42,16 +42,16 @@ public class MainActivity extends AppCompatActivity {
         userDao = UserDataBase.getInstance(getApplication()).getUserDao();
 
         new Thread(() -> {
-            if (userDao.getAllUsers().isEmpty()) {
-                getUsersFromNet();
+            users.addAll(userDao.getAllUsers());
+            if (users.isEmpty()) {
+                downloadUsers();
             } else {
-                users.addAll(userDao.getAllUsers());
-                this.runOnUiThread(() -> adapter.notifyDataSetChanged());
+                runOnUiThread(() -> adapter.notifyDataSetChanged());
             }
         }).start();
     }
 
-    private void getUsersFromNet() {
+    private void downloadUsers() {
         Retrofit.getUsers(new Callback<List<User>>() {
             @Override
             public void success(List<User> users, Response response) {

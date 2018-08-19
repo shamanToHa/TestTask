@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Engineering Idea</string>
+    <string name="user_online">user is active</string>
+    <string name="user_offline">user is offline</string>
 </resources>

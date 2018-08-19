@@ -34,9 +34,6 @@ public class User implements Serializable {
     private List<Friend> friends;
     private String favoriteFruit;
 
-    public User() {
-    }
-
     public String getId() {
         return id;
     }
@@ -84,6 +81,7 @@ public class User implements Serializable {
     public void setEyeColor(String eyeColor) {
         this.eyeColor = eyeColor;
     }
+
 
     public String getName() {
         return name;
